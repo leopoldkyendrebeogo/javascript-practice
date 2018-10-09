@@ -128,4 +128,55 @@ function printIntRev(n){
       //them, including the bounds.
 
       function selfDividingNumbers(left, right){
+            var result = [];
+            for( i= left; i<= right; i++){
+              if( selfDividing(i)){
+                  result.push(i);
+              }
+            }
+            return result;
       }
+
+      function selfDividing(num){
+
+          var myArray = num.toString().split("");
+
+          for(var i = 0; i < myArray.length; i++){
+            if( num% parseInt(myArray[i]) !== 0){
+                return false;
+            }
+          }
+          return true;
+      }
+
+      // Write the function moveZeros(nums) taking an array of numbers 
+      //and move all 0’s to the end of it while maintaining the relative order of the non-zero elements. 
+      function moveZeros(nums){
+          var result = [];
+          var counter = 0;
+        for(i = 0; i< nums.length; i++){
+            if(nums[i] === 0){
+               counter++ 
+            }else{
+                result.push(nums[i]);
+            }
+        }  
+          // adding zeros
+        while(counter > 0){
+            result.push(0);
+            counter--;
+        } 
+        return result; 
+    }
+
+//  Create an average() function that calculates the average of an array of numbers.
+     
+    
+function average(arr){
+    var sum = 0;
+    for( var i = 0; i < arr.length; i++){
+    sum += arr[i];
+}
+return sum/arr.length;
+}
+console.log(average([7, 1432, 12, 13, 100]));
